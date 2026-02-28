@@ -12,6 +12,9 @@ logs/
 log/
 DexHandLogs/
 
+# 实验数据
+data/
+
 # Python 字节码文件（核心）
 __pycache__/
 
