@@ -7,3 +7,12 @@ init_params:
   tac3d_name1: "HDL1-GWH0046"
   tac3d_name2: "HDL1-GWH0047"
   grasping_force: 5.0
+
+random_error:
+  random_seed: 42
+  x_scale: 0.000
+  y_scale: 0.000
+  z_scale: 0.000
+  roll_scale: 5.0
+  pitch_scale: 5.0
+  yaw_scale: 5.0

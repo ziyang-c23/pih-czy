@@ -14,15 +14,27 @@ class InitParams:
     grasping_force: float
 
 @dataclass
+class RandomErrorParams:
+    random_seed: int
+    x_scale: float
+    y_scale: float
+    z_scale: float
+    roll_scale: float
+    pitch_scale: float
+    yaw_scale: float
+
+@dataclass
 class Config:
     init_params: InitParams
+    random_error_params: RandomErrorParams
 
 def load_config(config_path: str = "config.yaml") -> Config:
     with open(config_path, 'r', encoding='utf-8') as f:
         config_dict = yaml.safe_load(f)
 
     return Config(
-        init_params=InitParams(**config_dict['init_params'])
+        init_params=InitParams(**config_dict['init_params']),
+        random_error_params=RandomErrorParams(**config_dict['random_error'])
     )
 
 # 全局变量，存储加载的配置
