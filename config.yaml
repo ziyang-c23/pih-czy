@@ -1,0 +1,9 @@
+# 初始化参数
+init_params:
+  initial_pose: [0.490, 0.001, 0.440, 0.924, -0.385, 0.000, 0.000]
+  initial_factor: 0.01
+  k_estimator_mode: false
+  default_k: 0.08
+  tac3d_name1: "HDL1-GWH0046"
+  tac3d_name2: "HDL1-GWH0047"
+  grasping_force: 5.0
