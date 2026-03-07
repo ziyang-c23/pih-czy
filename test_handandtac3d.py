@@ -3,7 +3,11 @@ from dexhand_client import DexHandClient
 import PyTac3D
 import numpy as np
 import time
+from config_loader import get_config
 
+cfg = get_config()
+TAC3D_NAME1 = cfg.init_params.tac3d_name1
+TAC3D_NAME2 = cfg.init_params.tac3d_name2
 
 # 用于存储Tac3D的测量结果
 class Tac3D_info:
@@ -80,8 +84,8 @@ if __name__ == "__main__":
     # 创建机械手客户端
     client = DexHandClient(ip="192.168.2.100", port=60031, recvCallback_hand=HandRecvCallback)
     # 创建传感器数据存储实例
-    Tac3D_name1 = "HDL1-GWH0046"  # 注意，'HDL1-0001'仅是举例，用户使用时请改成DexHand机械手上实际的Tac3D传感器编号
-    Tac3D_name2 = "HDL1-GWH0047"  # 注意，'HDL1-0002'仅是举例，用户使用时请改成DexHand机械手上实际的Tac3D传感器编号
+    Tac3D_name1 = TAC3D_NAME1
+    Tac3D_name2 = TAC3D_NAME2
     tacinfo1 = Tac3D_info(Tac3D_name1)
     tacinfo2 = Tac3D_info(Tac3D_name2)
     tac_dict = {Tac3D_name1: tacinfo1, Tac3D_name2: tacinfo2}

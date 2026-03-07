@@ -11,6 +11,13 @@ DEFAULT_K = cfg.init_params.default_k
 TAC3D_NAME1 = cfg.init_params.tac3d_name1
 TAC3D_NAME2 = cfg.init_params.tac3d_name2
 GRASPING_FORCE = cfg.init_params.grasping_force
+RANDOM_SEED = cfg.random_error_params.random_seed
+X_SCALE = cfg.random_error_params.x_scale
+Y_SCALE = cfg.random_error_params.y_scale
+Z_SCALE = cfg.random_error_params.z_scale
+ROLL_SCALE = cfg.random_error_params.roll_scale
+PITCH_SCALE = cfg.random_error_params.pitch_scale
+YAW_SCALE = cfg.random_error_params.yaw_scale
 
 if __name__ == "__main__":
 
@@ -18,6 +25,10 @@ if __name__ == "__main__":
                         k_estimator_mode=K_ESTIMATOR_MODE, default_k=DEFAULT_K, 
                         tac3d_name1=TAC3D_NAME1, tac3d_name2=TAC3D_NAME2,
                         grasping_force=GRASPING_FORCE)
+    env.reset()  # 重置环境到初始状态
+    env.randomize_initial_pose(x_scale=X_SCALE, y_scale=Y_SCALE, z_scale=Z_SCALE, 
+                               roll_scale=ROLL_SCALE, pitch_scale=PITCH_SCALE, yaw_scale=YAW_SCALE, random_seed=RANDOM_SEED)
+    env.reset() 
     # env = PegInHoleEnv(initial_pose=np.array([0.490, 0.001, 0.440, 1.000, -0.000, -0.000, 0.000]), initial_factor=0.002, 
     #                     k_estimator_mode=False, default_k=0.08, 
     #                     tac3d_name1="HDL1-GWH0046", tac3d_name2="HDL1-GWH0047",
